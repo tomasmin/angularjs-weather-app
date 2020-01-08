@@ -30,6 +30,9 @@
       <h4>Temperature: {{response.data.main.temp}} &#176;C</h4>
       <h4>Wind speed: {{response.data.wind.speed}} m/s</h4>
       <h4>Humidity: {{response.data.main.humidity}} %</h4>
+      <h4 class="warning" ng-style="warningStyle()">
+        WARNING! HEAVY WEATHER! {{condition}} incoming
+      </h4>
 
       <div class="wrapper">
         <div class="element" ng-repeat="item in forecast.data.list">
