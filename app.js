@@ -1,4 +1,5 @@
-var myApp = angular.module("myApp", []);
+const myApp = angular.module("myApp", []);
+const apiKey = "194333f5b09188fbda8c4a3bbfea30b2";
 
 myApp
   .controller("weatherController", ($scope, $http) => {
@@ -18,7 +19,8 @@ myApp
         .get(
           "https://api.openweathermap.org/data/2.5/weather?q=" +
             $scope.cityName +
-            "&units=metric&appid=194333f5b09188fbda8c4a3bbfea30b2"
+            "&units=metric&appid=" +
+            apiKey
         )
         .then(
           response => {
@@ -26,8 +28,8 @@ myApp
             console.log($scope.cityName);
             console.log($scope.response);
           },
-          response => {
-            console.log("City not found!");
+          err => {
+            console.log("Error! Wrong city name or no reponse from API");
           }
         );
 
@@ -35,7 +37,8 @@ myApp
         .get(
           "https://api.openweathermap.org/data/2.5/forecast?q=" +
             $scope.cityName +
-            "&units=metric&appid=194333f5b09188fbda8c4a3bbfea30b2"
+            "&units=metric&appid=" +
+            apiKey
         )
         .then(
           response => {
@@ -43,15 +46,15 @@ myApp
             console.log($scope.cityName);
             console.log($scope.forecast);
           },
-          response => {
-            alert("City not found!");
+          err => {
+            alert("Error! Wrong city name or no reponse from API");
           }
         );
     };
   })
   .filter("filter", function($filter) {
     return function(input) {
-      var date = new Date(input);
+      let date = new Date(input);
       return $filter("date")(date, "EEE hh a");
     };
   });

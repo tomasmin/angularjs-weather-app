@@ -1,16 +1,72 @@
-body {
+.container {
+  background: #e5e5e5;
   text-align: center;
+  max-width: 900px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+@media only screen and (min-width: 900px) {
+  .container {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+}
+
+input[type="submit"] {
+  background: #ef3f5a;
+  border: 1px solid #ef3f5a;
+  color: #fff;
+  padding: 0 30px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background: #d73851;
+  border: 1px solid #d73851;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+}
+
+form > * {
+  line-height: 30px;
+  font-size: 1rem;
+}
+
+input[type="search"] {
+  background: #fff;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+#iconTitle {
+  margin: 0;
 }
 
 .wrapper {
   overflow-x: auto;
-  display: inline-flex;
+  display: flex;
   max-width: 900px;
+  border-top: 1px solid #f1f3f8;
+  background-color: #d4d1d1;
 }
 
 .element {
   padding: 10px;
   text-align: center;
+  border-right: 1px solid #f1f3f8;
+}
+
+.forecastTime {
+  border-bottom: 1px solid #f1f3f8;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 .forecastInfo {
