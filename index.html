@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <link rel="stylesheet" type="text/css" href="app.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+  </head>
+  <body ng-controller="weatherController">
+    <div>
+      <label>Enter City Name: </label>
+      <input
+        id="city"
+        type="text"
+        ng-model="cityName"
+        placeholder="Enter a name here"
+      />
+      <button ng-click="getRequest()">Find</button>
+
+      <h1>{{response.data.name}}</h1>
+      <div class="iconWrapper" ng-repeat="item in response.data.weather">
+        <div>
+          <img
+            src="http://openweathermap.org/img/wn/{{item.icon}}@2x.png"
+            alt="{{item.main}}"
+          />
+          <div>{{item.main}}</div>
+        </div>
+      </div>
+      <p>Temperature: {{response.data.main.temp}} &#176;C</p>
+      <p>Wind speed: {{response.data.wind.speed}} m/s</p>
+      <p>Humidity: {{response.data.main.humidity}} %</p>
+
+      <h2>Forecast for 5 days</h2>
+      <div class="wrapper">
+        <div class="element" ng-repeat="item in forecast.data.list">
+          <div class="forecastInfo">{{item.dt_txt | filter}}</div>
+          <div class="forecastInfo">{{item.main.temp}} &#176;C</div>
+          <div class="forecastInfo">{{item.wind.speed}} m/s</div>
+          <div class="forecastInfo">{{item.main.humidity}} %</div>
+          <div class="iconWrapper" ng-repeat="i in item.weather">
+            <img
+              class="iconElement"
+              src="http://openweathermap.org/img/wn/{{i.icon}}.png"
+              alt="{{i.main}}"
+            />
+          </div>
+        </div>
+      </div>
+
+      <script src="app.js"></script>
+    </div>
+  </body>
+</html>

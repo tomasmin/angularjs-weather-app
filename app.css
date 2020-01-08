@@ -1,0 +1,23 @@
+body {
+  text-align: center;
+}
+
+.wrapper {
+  overflow-x: auto;
+  display: inline-flex;
+  max-width: 900px;
+}
+
+.element {
+  padding: 10px;
+  text-align: center;
+}
+
+.forecastInfo {
+  min-width: 90px;
+  padding-bottom: 5px;
+}
+
+.iconWrapper {
+  display: inline-flex;
+}
